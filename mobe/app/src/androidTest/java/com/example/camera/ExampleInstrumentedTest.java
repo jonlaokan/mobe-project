@@ -1,4 +1,4 @@
-package mobe.m2dl.myapplication;
+package com.example.camera;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("mobe.m2dl.myapplication", appContext.getPackageName());
+        assertEquals("com.example.camera", appContext.getPackageName());
     }
 }

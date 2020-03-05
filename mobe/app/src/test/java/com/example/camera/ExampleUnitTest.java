@@ -1,4 +1,4 @@
-package mobe.m2dl.myapplication;
+package com.example.camera;
 
 import org.junit.Test;
 
