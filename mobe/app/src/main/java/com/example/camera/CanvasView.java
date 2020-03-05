@@ -2,13 +2,16 @@ package com.example.camera;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 public class CanvasView extends View {
     public int width;
@@ -20,6 +23,9 @@ public class CanvasView extends View {
     private Paint mPaint;
     private float mX, mY;
     private static final float TOLERANCE = 5;
+
+
+    private RectF rect;
 
     public CanvasView(Context c, AttributeSet attrs) {
         super(c , attrs);
@@ -71,6 +77,8 @@ public class CanvasView extends View {
         mPath.reset();
         invalidate();
     }
+
+
     // ACTION_UP
     private void upTouch() {
         mPath.lineTo(mX, mY);
