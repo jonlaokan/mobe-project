@@ -42,9 +42,6 @@
             android:onClick="addSunSticker"
             app:srcCompat="@drawable/sun" />
 
-
-
-
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ public class Sticker {
     private int defaultx, defaulty;
 
     private boolean isTouched = false;
+    public boolean isWanted = false;
 
     Sticker(Bitmap bitmap, int firstx, int firsty) {
         setOriginalBitmap(bitmap);
@@ -98,13 +99,30 @@ public class Sticker {
         return isTouched;
     }
 
+
     public void setTouched(boolean touched) {
         isTouched = touched;
+    }
+
+    public String shoutPosition() {
+        return "I am at " + getxPos() + "," + getyPos();
+    }
+
+    public void setisWanted(boolean choice) {
+        isWanted = choice;
+    }
+
+    public boolean shouldBeDrawn() {
+        return isWanted;
     }
 
     public void reset() {
         setxPos(defaultx);
         setyPos(defaulty);
+        setTouched(false);
+        setisWanted(false);
     }
+
+
 
 }
