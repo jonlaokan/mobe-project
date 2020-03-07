@@ -12,7 +12,7 @@
         android:background="#FFFFFF"
         android:orientation="vertical" >
 
-        <com.example.camera.TouchAppView
+        <com.example.camera.StickerView
             android:id="@+id/sticker_canvas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
