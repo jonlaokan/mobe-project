@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">CanvasExample</string>
-    <string name="todo1">plop</string>
-    <string name="todo2">plip</string>
-    <string name="todo">paw</string>
+    <string name="dogDescription">A sticker of a cute dog</string>
+    <string name="sunDescription">A sticker of a sun</string>
+    <string name="kidDescription">A sticker of a kid</string>
+    <string name="CTRDescription">A sticker of a sun</string>
+    <string name="robotDescription">A sticker of a sun</string>
+    <string name="todo">Awaiting a better description</string>
 </resources>

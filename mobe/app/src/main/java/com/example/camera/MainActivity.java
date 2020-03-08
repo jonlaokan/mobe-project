@@ -23,19 +23,19 @@ MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         canvas = (StickerView) findViewById(R.id.sticker_canvas);
-        test = findViewById(R.id.imageView2);
+        test = findViewById(R.id.dog);
 
         //test.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.dog_smiling));
         //test.callOnClick();
     }
 
-    public void addDogSticker(View view) {
-        canvas.addDogSticker(view);
+    public void addDogSticker(View view) { canvas.addSticker(view, 0); }
+    public void addSunSticker(View view) { canvas.addSticker(view, 1); }
+    public void addRobotSticker(View view) {
+        canvas.addSticker(view, 2);
     }
-
-    public void addSunSticker(View view) {
-        canvas.addSunSticker(view);
-    }
+    public void addKidSticker(View view) { canvas.addSticker(view, 3); }
+    public void addCTRSticker(View view) { canvas.addSticker(view, 4); }
 
     public void clearStickers(View view) {
         canvas.clearStickers(view);

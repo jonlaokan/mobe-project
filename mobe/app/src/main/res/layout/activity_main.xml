@@ -9,8 +9,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="428dp"
+        android:layout_height="729dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="573dp"
             android:textColor="#FFFFFF"
+            android:background="@color/canvasBackground"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="-10dp" />
 
@@ -39,7 +40,8 @@
             android:layout_marginTop="-4dp"
             android:layout_marginEnd="-33dp"
             android:layout_marginBottom="-209dp"
-            android:layout_toRightOf="@id/cleanCanvas">
+            android:layout_toRightOf="@id/cleanCanvas"
+            android:background="@color/scrollview">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,42 +52,45 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="112dp"
-                    android:layout_height="84dp"
-                    android:layout_marginEnd="149dp"
-                    android:layout_marginBottom="3dp"
-                    android:contentDescription="@string/todo"
-                    android:onClick="addDogSticker" />
+                    android:id="@+id/dog"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/dogDescription"
+                    android:onClick="addDogSticker"
+                    app:srcCompat="@drawable/dog_smiling" />
 
                 <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="133dp"
-                    android:layout_height="78dp"
-                    android:contentDescription="@string/todo"
+                    android:id="@+id/sun"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/sunDescription"
                     android:onClick="addSunSticker"
                     app:srcCompat="@drawable/sun" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="133dp"
-                    android:layout_height="78dp"
-                    android:contentDescription="TODO"
-                    android:onClick="addSunSticker"
-                    app:srcCompat="@drawable/sun" />
+                    android:id="@+id/androidRobot"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/robotDescription"
+                    android:onClick="addRobotSticker"
+                    app:srcCompat="@drawable/android_robot" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="120dp"
+                    android:id="@+id/successKid"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
-                    app:srcCompat="@drawable/dog_smiling" />
+                    android:contentDescription="@string/kidDescription"
+                    android:onClick="addKidSticker"
+                    app:srcCompat="@drawable/success_kid" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="120dp"
+                    android:id="@+id/cutTheRope"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/dog_smiling" />
+                    android:contentDescription="@string/CTRDescription"
+                    android:onClick="addCTRSticker"
+                    app:srcCompat="@drawable/cut_the_rope" />
+
 
 
             </LinearLayout>
