@@ -23,7 +23,7 @@ MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         canvas = (StickerView) findViewById(R.id.sticker_canvas);
-        test = findViewById(R.id.imageView2);
+        test = findViewById(R.id.dog);
 
         //test.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.dog_smiling));
         //test.callOnClick();

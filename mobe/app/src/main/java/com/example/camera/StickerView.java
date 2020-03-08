@@ -31,10 +31,12 @@ public class StickerView extends View {
         Sticker dog;
         Sticker sun;
         dog = new Sticker(BitmapFactory.decodeResource(getResources(),
-                R.drawable.dog_smiling), 528, 1827 );
+                //R.drawable.dog_smiling), 528, 1827 );
+                R.drawable.dog_smiling), 200, 200 );
 
         sun = new Sticker(BitmapFactory.decodeResource(getResources(),
-                R.drawable.sun), 1000, 1800);
+                //R.drawable.sun), 1000, 1800);
+                R.drawable.sun), 400, 400);
         stickers.add(dog);
         stickers.add(sun);
     }
