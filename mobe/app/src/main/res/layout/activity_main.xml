@@ -59,30 +59,34 @@
                     android:id="@+id/sun"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:contentDescription="@string/todo"
+                    android:contentDescription="@string/sunDescription"
                     android:onClick="addSunSticker"
                     app:srcCompat="@drawable/sun" />
 
                 <ImageView
-                    android:id="@+id/im1"
+                    android:id="@+id/androidRobot"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:contentDescription="@string/todo"
-                    android:onClick="addSunSticker"
-                    app:srcCompat="@drawable/sun" />
+                    android:contentDescription="@string/robotDescription"
+                    android:onClick="addRobotSticker"
+                    app:srcCompat="@drawable/android_robot" />
 
                 <ImageView
-                    android:id="@+id/im2"
-                    android:layout_width="120dp"
+                    android:id="@+id/successKid"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
-                    app:srcCompat="@drawable/dog_smiling" />
+                    android:contentDescription="@string/kidDescription"
+                    android:onClick="addKidSticker"
+                    app:srcCompat="@drawable/success_kid" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="120dp"
+                    android:id="@+id/cutTheRope"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/dog_smiling" />
+                    android:contentDescription="@string/CTRDescription"
+                    android:onClick="addKidSticker"
+                    app:srcCompat="@drawable/cut_the_rope" />
+
 
             </LinearLayout>
         </HorizontalScrollView>
