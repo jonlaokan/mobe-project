@@ -28,17 +28,17 @@ public class StickerView extends View {
     }
 
     private void loadStickers(){
-        Sticker dog;
-        Sticker sun;
-        dog = new Sticker(BitmapFactory.decodeResource(getResources(),
-                //R.drawable.dog_smiling), 528, 1827 );
-                R.drawable.dog_smiling), 200, 200 );
+        instantiateSticker(R.drawable.dog_smiling, 400, 400);
+        instantiateSticker(R.drawable.sun, 528, 600);
+        instantiateSticker(R.drawable.android_robot, 200, 200);
+        instantiateSticker(R.drawable.success_kid, 300, 500);
+        instantiateSticker(R.drawable.cut_the_rope, 400, 400);
+    }
 
-        sun = new Sticker(BitmapFactory.decodeResource(getResources(),
-                //R.drawable.sun), 1000, 1800);
-                R.drawable.sun), 400, 400);
-        stickers.add(dog);
-        stickers.add(sun);
+    private void instantiateSticker(int drawableId, int left, int top) {
+        Sticker sticker = new Sticker(BitmapFactory.decodeResource(getResources(),
+                drawableId), left, top );
+        stickers.add(sticker);
     }
 
     @Override
@@ -121,13 +121,8 @@ public class StickerView extends View {
             canvas.drawBitmap(sticker.getScaledBitmap(), sticker.getxPos(), sticker.getyPos(), paint);
     }
 
-    public void addDogSticker(View view) {
-        stickers.get(0).setisWanted(true);
-        invalidate();
-    }
-
-    public void addSunSticker(View view) {
-        stickers.get(1).setisWanted(true);
+    public void addSticker(View view, int id) {
+        stickers.get(id).setisWanted(true);
         invalidate();
     }
 
