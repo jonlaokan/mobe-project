@@ -1,8 +1,10 @@
 package com.example.camera;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +13,7 @@ public class
 MainActivity extends AppCompatActivity {
 
     private StickerView canvas;
+    private ImageView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,10 @@ MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         canvas = (StickerView) findViewById(R.id.sticker_canvas);
+        test = findViewById(R.id.imageView2);
+
+        //test.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.dog_smiling));
+        //test.callOnClick();
     }
 
     public void addDogSticker(View view) {

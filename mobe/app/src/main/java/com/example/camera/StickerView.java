@@ -4,9 +4,11 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -40,9 +42,16 @@ public class StickerView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 
+        drawMenu(canvas);
         for (Sticker s : stickers) {
             drawSticker(canvas,s);
         }
+
+    }
+
+    private void drawMenu(Canvas canvas) {
+        Sticker dogPinned = new Sticker(BitmapFactory.decodeResource(getResources(),R.drawable.dog_smiling), 1000, 200);
+        canvas.drawBitmap(dogPinned.getScaledBitmap(), dogPinned.getxPos(), dogPinned.getyPos(), paint);
     }
 
 
