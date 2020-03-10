@@ -4,28 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".PhotoActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-        <TextureView
-            android:id="@+id/texture_view"
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-<!--
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_take_photo"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/ic_camera"
-            app:backgroundTint="@color/colorPrimary" />
--->
-    </RelativeLayout>
-
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+        </Space>
+        <Button
+            android:id="@+id/faire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Faire une photo" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+        </Space>
+        <Button
+            android:id="@+id/afficher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Afficher les photos"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+        </Space>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
