@@ -4,12 +4,14 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class StickerView extends View {
@@ -18,9 +20,11 @@ public class StickerView extends View {
     private float x, y;
     private boolean touching;
 
+
     private ArrayList<Sticker> stickers = new ArrayList<>();
 
     private Context c;
+
     public StickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         c = context;
@@ -32,7 +36,7 @@ public class StickerView extends View {
         instantiateSticker(R.drawable.sun, 528, 600);
         instantiateSticker(R.drawable.android_robot, 200, 200);
         instantiateSticker(R.drawable.success_kid, 300, 500);
-        instantiateSticker(R.drawable.cut_the_rope, 400, 400);
+        instantiateSticker(R.drawable.cut_the_rope, 600, 400);
     }
 
     private void instantiateSticker(int drawableId, int left, int top) {
@@ -43,11 +47,10 @@ public class StickerView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         drawMenu(canvas);
         for (Sticker s : stickers) {
             drawSticker(canvas,s);
-        }
+        };
 
     }
 
@@ -132,4 +135,7 @@ public class StickerView extends View {
         }
         invalidate();
     }
+
+
+
 }

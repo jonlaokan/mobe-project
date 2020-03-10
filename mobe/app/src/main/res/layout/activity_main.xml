@@ -105,6 +105,15 @@
             android:onClick="clearStickers"
             android:text="Clean canvas" />
 
+        <Button
+            android:id="@+id/saveCanvas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cleanCanvas"
+            android:layout_alignParentBottom="false"
+            android:onClick="saveCanvas"
+            android:text="Save canvas" />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
