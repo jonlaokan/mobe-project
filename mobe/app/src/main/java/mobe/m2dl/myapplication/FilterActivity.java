@@ -25,6 +25,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 
 public class FilterActivity extends AppCompatActivity implements View.OnTouchListener, SensorEventListener{
@@ -42,11 +44,10 @@ public class FilterActivity extends AppCompatActivity implements View.OnTouchLis
         Intent intent = getIntent();
         imagePath = intent.getExtras().getString("photoPath");
 
-        System.out.println(imagePath);
         ImageView imageFiltered = findViewById(R.id.filtered);
         Bitmap photo = BitmapFactory.decodeFile(imagePath);
         imageFiltered.setImageBitmap(photo);
-        
+
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor accSensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         Sensor magnSensor = sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED);
@@ -71,11 +72,23 @@ public class FilterActivity extends AppCompatActivity implements View.OnTouchLis
                 imageFiltered.setImageBitmap(fm.applyColorFilter(gyrValues, tmp.getBitmap()));
             }
         });
-
         Button stickerButton = findViewById(R.id.stickers);
         stickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                File output = new File(imagePath);
+                OutputStream os = null;
+                ImageView imageFiltered = findViewById(R.id.filtered);
+                BitmapDrawable tmp = (BitmapDrawable)imageFiltered.getDrawable();
+                Bitmap imageToBeSaved = tmp.getBitmap();
+                try {
+                    os = new FileOutputStream(output);
+                    imageToBeSaved.compress(Bitmap.CompressFormat.PNG, 100, os);
+                    os.flush();
+                    os.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Intent myIntent = new Intent(FilterActivity.this, StickerActivity.class);
                 myIntent.putExtra("photoPath", imagePath);
                 FilterActivity.this.startActivity(myIntent);
