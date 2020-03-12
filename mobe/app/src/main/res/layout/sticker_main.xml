@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <mobe.m2dl.myapplication.StickerView
+            android:id="@+id/sticker_canvas"
+            android:layout_width="match_parent"
+            android:layout_height="573dp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="-10dp" />
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_below="@id/sticker_canvas"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentBottom="false"
+            android:layout_toRightOf="@id/cleanCanvas"
+            android:background="@color/scrollview">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/dog"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/dogDescription"
+                    android:onClick="addDogSticker"
+                    app:srcCompat="@drawable/dog_smiling" />
+
+                <ImageView
+                    android:id="@+id/sun"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/sunDescription"
+                    android:onClick="addSunSticker"
+                    app:srcCompat="@drawable/sun" />
+
+                <ImageView
+                    android:id="@+id/androidRobot"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/robotDescription"
+                    android:onClick="addRobotSticker"
+                    app:srcCompat="@drawable/android_robot" />
+
+                <ImageView
+                    android:id="@+id/successKid"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/kidDescription"
+                    android:onClick="addKidSticker"
+                    app:srcCompat="@drawable/success_kid" />
+
+                <ImageView
+                    android:id="@+id/cutTheRope"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/CTRDescription"
+                    android:onClick="addCTRSticker"
+                    app:srcCompat="@drawable/cut_the_rope" />
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/cleanCanvas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sticker_canvas"
+            android:layout_alignParentBottom="false"
+            android:onClick="clearStickers"
+            android:text="Clean canvas" />
+
+        <Button
+            android:id="@+id/saveCanvas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cleanCanvas"
+            android:layout_alignParentBottom="false"
+            android:onClick="saveCanvas"
+            android:text="Save canvas" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
