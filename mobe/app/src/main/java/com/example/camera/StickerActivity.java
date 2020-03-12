@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import java.io.OutputStream;
 
 
 public class
-MainActivity extends AppCompatActivity {
+StickerActivity extends AppCompatActivity {
 
     private StickerView stickerView;
     private int imageID = 1;
@@ -31,7 +32,6 @@ MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         stickerView = (StickerView) findViewById(R.id.sticker_canvas);
-
     }
 
     public void saveCanvas(View view) {
@@ -71,7 +71,7 @@ MainActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(MainActivity.this, toast, Toast.LENGTH_SHORT).show();
+                Toast.makeText(StickerActivity.this, toast, Toast.LENGTH_SHORT).show();
             }
         });
     }

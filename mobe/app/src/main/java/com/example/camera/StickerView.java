@@ -4,14 +4,10 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class StickerView extends View {
@@ -35,7 +31,7 @@ public class StickerView extends View {
         instantiateSticker(R.drawable.dog_smiling, 400, 400);
         instantiateSticker(R.drawable.sun, 528, 600);
         instantiateSticker(R.drawable.android_robot, 200, 200);
-        instantiateSticker(R.drawable.success_kid, 300, 500);
+        instantiateSticker(R.drawable.success_kid, 401, 401);
         instantiateSticker(R.drawable.cut_the_rope, 600, 400);
     }
 
@@ -47,17 +43,17 @@ public class StickerView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        drawMenu(canvas);
+
         for (Sticker s : stickers) {
             drawSticker(canvas,s);
         };
 
     }
 
-    private void drawMenu(Canvas canvas) {
-        Sticker dogPinned = new Sticker(BitmapFactory.decodeResource(getResources(),R.drawable.dog_smiling), 1000, 200);
-        canvas.drawBitmap(dogPinned.getScaledBitmap(), dogPinned.getxPos(), dogPinned.getyPos(), paint);
-    }
+//    private void drawMenu(Canvas canvas) {
+////        Sticker dogPinned = new Sticker(BitmapFactory.decodeResource(getResources(),R.drawable.dog_smiling), 1000, 200);
+//        canvas.drawBitmap(dogPinned.getScaledBitmap(), dogPinned.getxPos(), dogPinned.getyPos(), paint);
+//    }
 
 
     @Override
