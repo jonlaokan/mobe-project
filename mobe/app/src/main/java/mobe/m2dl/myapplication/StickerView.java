@@ -32,7 +32,7 @@ public class StickerView extends View {
         instantiateSticker(R.drawable.dog_smiling, 400, 400);
         instantiateSticker(R.drawable.sun, 528, 600);
         instantiateSticker(R.drawable.android_robot, 200, 200);
-        instantiateSticker(R.drawable.success_kid, 401, 401);
+        instantiateSticker(R.drawable.success_kid, 500, 500);
         instantiateSticker(R.drawable.cut_the_rope, 600, 400);
     }
 

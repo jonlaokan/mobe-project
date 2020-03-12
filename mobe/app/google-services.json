@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "167170029484",
+    "firebase_url": "https://superapp-dc672.firebaseio.com",
+    "project_id": "superapp-dc672",
+    "storage_bucket": "superapp-dc672.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167170029484:android:14ce68def70b4c97be6c09",
+        "android_client_info": {
+          "package_name": "mobe.m2dl.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167170029484-lgklhn8nug1ianpt2ljfkvdmfml8qsv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyHohQzNZAG0LbPS_zSrDHbhe7L-4m0Ig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167170029484-lgklhn8nug1ianpt2ljfkvdmfml8qsv4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

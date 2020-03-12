@@ -1,4 +1,5 @@
 <resources>
+    <string name="google_maps_key">AIzaSyB79FP536J6SW8u12GL1RGt96kd4wLJSIQ</string>
     <string name="app_name">CameraApp</string>
     <string name="dogDescription">A sticker of a cute dog</string>
     <string name="sunDescription">A sticker of a sun</string>
