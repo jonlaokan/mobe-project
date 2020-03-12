@@ -44,7 +44,7 @@ public class FilterActivity extends AppCompatActivity implements View.OnTouchLis
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.CAMERA,
                         Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-        setContentView(R.layout.filter_activity);
+        setContentView(R.layout.activity_filter);
 
         Button LightBtn = findViewById(R.id.magnField);
         LightBtn.setOnClickListener(new View.OnClickListener() {
