@@ -20,8 +20,7 @@ import java.util.Date;
 public class FireUtils {
 
 
-    void writeImage(String fileName, Location location, final Runnable onSuccess) throws IOException, IllegalArgumentException {
-            Bitmap bitmap = BitmapFactory.decodeFile(fileName);
+    void writeImage(Bitmap bitmap, Location location, final Runnable onSuccess, final Runnable onFailure) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
             byte[] data = baos.toByteArray();
@@ -36,7 +35,7 @@ public class FireUtils {
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure( Exception exception) {
-                    throw new RuntimeException();
+                    onFailure.run();
                 }
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
