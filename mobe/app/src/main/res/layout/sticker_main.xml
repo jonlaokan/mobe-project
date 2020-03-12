@@ -9,8 +9,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="428dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,17 +28,13 @@
 
         <HorizontalScrollView
             android:id="@+id/scrollView"
-            android:layout_width="wrap_content"
-            android:layout_height="121dp"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
             android:layout_alignWithParentIfMissing="false"
             android:layout_below="@id/sticker_canvas"
             android:layout_alignParentTop="false"
             android:layout_alignParentEnd="false"
             android:layout_alignParentBottom="false"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginEnd="-33dp"
-            android:layout_marginBottom="-209dp"
             android:layout_toRightOf="@id/cleanCanvas"
             android:background="@color/scrollview">
 
@@ -89,7 +85,6 @@
                     android:contentDescription="@string/CTRDescription"
                     android:onClick="addCTRSticker"
                     app:srcCompat="@drawable/cut_the_rope" />
-
 
 
             </LinearLayout>
