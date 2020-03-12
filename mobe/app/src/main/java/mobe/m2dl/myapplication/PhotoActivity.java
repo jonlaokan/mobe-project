@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
@@ -21,6 +22,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.util.Size;
 import android.view.Surface;
@@ -228,9 +230,10 @@ public class PhotoActivity extends AppCompatActivity {
         }
     }
 
-    private void createImageGallery() {
+    private String createImageGallery() {
         File storageDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         galleryFolder = new File(storageDirectory, getResources().getString(R.string.app_name));
+
       //  Log.i("lol",getResources().getString(R.string.app_name));
         if (!galleryFolder.exists()) {
             boolean wasCreated = galleryFolder.mkdirs();
@@ -238,6 +241,7 @@ public class PhotoActivity extends AppCompatActivity {
                 Log.e("CapturedImages", "Failed to create directory");
             }
         }
+        return galleryFolder.getAbsolutePath();
     }
 
     private File createImageFile(File galleryFolder) throws IOException {
@@ -249,8 +253,10 @@ public class PhotoActivity extends AppCompatActivity {
     public void onTakePhoneButtonClicked() {
         lock();
         FileOutputStream outputPhoto = null;
+        File file = null;
         try {
-            outputPhoto = new FileOutputStream(createImageFile(galleryFolder));
+            file = createImageFile(galleryFolder);
+            outputPhoto = new FileOutputStream(file);
             textureView.getBitmap()
                     .compress(Bitmap.CompressFormat.PNG, 100, outputPhoto);
         } catch (Exception e) {
@@ -259,8 +265,12 @@ public class PhotoActivity extends AppCompatActivity {
             unlock();
             try {
                 if (outputPhoto != null) {
-                    createImageGallery();
+                    String imagePath = file.getAbsolutePath();
+                    // Switch to Sticker Activity
                     outputPhoto.close();
+                    Intent myIntent = new Intent(PhotoActivity.this, StickerActivity.class);
+                    myIntent.putExtra("photoPath", imagePath);
+                    PhotoActivity.this.startActivity(myIntent);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
