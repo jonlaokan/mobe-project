@@ -268,7 +268,7 @@ public class PhotoActivity extends AppCompatActivity {
                     String imagePath = file.getAbsolutePath();
                     // Switch to Sticker Activity
                     outputPhoto.close();
-                    Intent myIntent = new Intent(PhotoActivity.this, StickerActivity.class);
+                    Intent myIntent = new Intent(PhotoActivity.this, FilterActivity.class);
                     myIntent.putExtra("photoPath", imagePath);
                     PhotoActivity.this.startActivity(myIntent);
                 }

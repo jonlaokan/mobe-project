@@ -5,7 +5,9 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -31,21 +33,25 @@ public class FilterActivity extends AppCompatActivity implements View.OnTouchLis
     private FilterManager fm = new FilterManager();
     private float[] gyrValues;
     private float[] magnValues;
+    private String imagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sm = (SensorManager) getSystemService(SENSOR_SERVICE);
-        // permet de restreindre le niveau de sÃ©curitÃ© (entre autre l'accÃ©s Ã  des fichiers)
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
-
-        // affiche une popup si l'utilisateur doit accepter manuellement une permission
-        ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.CAMERA,
-                        Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         setContentView(R.layout.activity_filter);
+        Intent intent = getIntent();
+        imagePath = intent.getExtras().getString("photoPath");
 
+        System.out.println(imagePath);
+        ImageView imageFiltered = findViewById(R.id.filtered);
+        Bitmap photo = BitmapFactory.decodeFile(imagePath);
+        imageFiltered.setImageBitmap(photo);
+        
+        sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor accSensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        Sensor magnSensor = sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED);
+        sm.registerListener(this, accSensor,SensorManager.SENSOR_DELAY_UI);
+        sm.registerListener(this, magnSensor,SensorManager.SENSOR_DELAY_UI);
         Button LightBtn = findViewById(R.id.magnField);
         LightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,24 +72,15 @@ public class FilterActivity extends AppCompatActivity implements View.OnTouchLis
             }
         });
 
-        File photo = new File(Environment.getExternalStorageDirectory()+"/tmp/", "Pic.jpg");
-
-        Uri selectedImage = Uri.fromFile(photo);
-        getContentResolver().notifyChange(selectedImage, null);
-        ImageView imageFiltered = findViewById(R.id.filtered);
-
-        ContentResolver cr = getContentResolver();
-        try {
-            Bitmap bitmap = android.provider.MediaStore.Images.Media.getBitmap(cr, selectedImage);
-            imageFiltered.setImageBitmap(bitmap);
-            Sensor accSensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            Sensor magnSensor = sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED);
-            sm.registerListener(this, accSensor,SensorManager.SENSOR_DELAY_UI);
-            sm.registerListener(this, magnSensor,SensorManager.SENSOR_DELAY_UI);
-        } catch (Exception e) {
-            Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT).show();
-            Log.e("Camera", e.toString());
-        }
+        Button stickerButton = findViewById(R.id.stickers);
+        stickerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(FilterActivity.this, StickerActivity.class);
+                myIntent.putExtra("photoPath", imagePath);
+                FilterActivity.this.startActivity(myIntent);
+            }
+        });
 
     }
 
