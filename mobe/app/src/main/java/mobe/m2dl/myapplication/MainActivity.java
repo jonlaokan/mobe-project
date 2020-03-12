@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
                     4);
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                     @Override
