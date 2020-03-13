@@ -30,9 +30,10 @@
 
         <activity android:name=".FilterActivity">
         </activity>
-        <activity android:name=".PhotoActivity">
+        <activity android:name=".PhotoActivity"/>
 
-        </activity>
+        <activity android:name=".ImagesActivity"/>
+
         <activity android:name=".MapsActivity" />
         <activity android:name=".StickerActivity">
         </activity>
